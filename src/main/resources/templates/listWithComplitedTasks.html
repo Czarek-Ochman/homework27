@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadania do zrobienia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body class="backgroundColor">
+<div class="center">
+    <h1 class="position">Tabela zadań które zostały zrobione:</h1>
+</div>
+<table class="table size center">
+    <thead>
+    <tr class="color">
+        <th>Nazwa</th>
+        <th>Opis</th>
+        <th>Data</th>
+        <th><a href="/lista" class="btn btn-secondary">Zadania do realizacji</a>
+            <a href="/" class="btn btn-secondary">Strona główna</a></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="color" th:each="oldTask : ${all}">
+        <td th:text="${oldTask.name}"></td>
+        <td th:text="${oldTask.description}"></td>
+        <td th:text="${oldTask.date}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
