@@ -1,7 +1,9 @@
 package com.example.demo.model;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.time.LocalDate;
 
 @Entity
 public class Task {
@@ -10,9 +12,15 @@ public class Task {
     private Long id;
     private String name;
     private String description;
-    private String date;
+    private LocalDate date;
 
     public Task() {
+    }
+
+    public Task(String name, String description, LocalDate date) {
+        this.name = name;
+        this.description = description;
+        this.date = date;
     }
 
     public Long getId() {
@@ -39,12 +47,12 @@ public class Task {
         this.description = description;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
     public void setDate(String date) {
-        this.date = date;
+        this.date = LocalDate.parse(date);
     }
 
     @Override
@@ -53,7 +61,7 @@ public class Task {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", date='" + date + '\'' +
+                ", date=" + date +
                 '}';
     }
 }

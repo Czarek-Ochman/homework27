@@ -1,4 +1,5 @@
 package com.example.demo.controller;
+
 import com.example.demo.model.OldTask;
 import com.example.demo.model.Task;
 import com.example.demo.repository.OldTaskRepository;
@@ -8,14 +9,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
 @Controller
 public class TaskController {
 
-    TaskRepository taskRepository;
-    OldTaskRepository oldTaskRepository;
+    private final TaskRepository taskRepository;
+    private final OldTaskRepository oldTaskRepository;
 
     public TaskController(TaskRepository taskRepository, OldTaskRepository oldTaskRepository) {
         this.taskRepository = taskRepository;
@@ -82,13 +85,9 @@ public class TaskController {
     @PostMapping("/edytowanie")
     public String edited(@RequestParam Long id, Task newTask) {
         Task task = taskRepository.findById(id).orElse(null);
-        if (newTask.getName().length() > 0) {
-            task.setName(newTask.getName());
-        } else if (newTask.getDescription().length() > 0) {
-            task.setDescription(newTask.getDescription());
-        } else if (newTask.getDate().length() > 0) {
-            task.setDate(newTask.getDate());
-        }
+        task.setName(newTask.getName());
+        task.setDescription(newTask.getDescription());
+        task.setDate(newTask.getDate().toString());
         taskRepository.save(task);
         return "redirect:/lista";
     }

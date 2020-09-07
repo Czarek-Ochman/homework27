@@ -1,7 +1,9 @@
 package com.example.demo.model;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.time.LocalDate;
 
 @Entity
 public class OldTask {
@@ -10,12 +12,12 @@ public class OldTask {
     private Long id;
     private String name;
     private String description;
-    private String date;
+    private LocalDate date;
 
     public OldTask() {
     }
 
-    public OldTask(String name, String description, String date) {
+    public OldTask(String name, String description, LocalDate date) {
         this.name = name;
         this.description = description;
         this.date = date;
@@ -45,11 +47,11 @@ public class OldTask {
         this.description = description;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
