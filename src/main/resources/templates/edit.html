@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edytowanie</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body class="backgroundColor">
+<div class="center">
+    <div class="jumbotron">
+        <h1 class="display-4 center">Edytuj zadanie!</h1>
+        <hr class="my-4">
+        <form method="post" class="positionList" th:object="${task}">
+            <div class="center form-group">
+                <h3 class="display-7 center">Nazwa</h3>
+                <input type="text" name="name" class="form-control" th:value="${oldTask.name}" th:name="name"
+                       th:id="name" th:placeholder="${oldTask.name}">
+            </div>
+
+            <div class="center form-group">
+                <h3 class="display-7 center">Opis</h3>
+                <input name="description" class="form-control" th:value="${oldTask.description}" th:name="description"
+                       th:id="description"
+                       th:placeholder="${oldTask.description}">
+            </div>
+            <div class="center form-group">
+                <h3 class="display-7 center">Data</h3>
+                <input type="date" class="width" maxlength="10" th:value="${oldTask.date}" th:name="date" th:id="date"
+                       name="date"
+                       th:placeholder="${oldTask.date}"><br>
+            </div>
+            <div class="center">
+                <button type="submit" class="btn btn-secondary btn-lg btn-block">Edytuj</button>
+                <br>
+            </div>
+        </form>
+        <a methods="get" href="/" class="btn btn-secondary btn-lg btn-block">Powrót na stronę główną</a>
+    </div>
+</div>
+</body>
+</html>

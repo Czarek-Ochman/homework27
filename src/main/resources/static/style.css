@@ -1,0 +1,36 @@
+.backgroundColor {
+    background-color: aliceblue;
+}
+
+.background {
+    background-color: darkslategrey;
+}
+
+.center {
+    text-align: center;
+}
+
+
+.blok {
+    height: 100px;
+    background: darkslategrey;
+    padding-top: 45px;
+    padding-bottom: 45px;
+}
+
+.selektor {
+    text-decoration: blink
+}
+
+
+.size {
+    height: 280px;
+}
+
+.sizeInput {
+    width: 400px;
+}
+
+.width {
+    width: auto;
+}
